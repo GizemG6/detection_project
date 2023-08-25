@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 # create file handler and set formatter
-log_path = log_path = r'C:\Users\cang8\Desktop\log\file.log'
+log_path = log_path = r'C:'
 file_handler = logging.FileHandler(log_path)
 formatter = logging.Formatter('%(asctime)s : %(levelname)s : %(message)s')
 file_handler.setFormatter(formatter)
@@ -22,11 +22,11 @@ logger.addHandler(file_handler)
 
 # connect db
 mydb = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="531642.",
-        port="3309",
-        database="pasadvanced"
+        host="",
+        user="",
+        password="",
+        port="",
+        database=""
     )
 
 mycursorHdmi = mydb.cursor()
@@ -37,35 +37,35 @@ mycursorSatellite = mydb.cursor()
 # function that execute hdmi1 query
 def resultHdmi1():
     resultHdmi1 = False
-    mycursorHdmi1.execute("select bHdmi1 from pasadvanced.hdmi")
+    mycursorHdmi1.execute("")
     resultHdmi1 = mycursorHdmi1.fetchone()[0]
     return resultHdmi1
 
 # function that execute hdmi2 query
 def resultHdmi2():
     resultHdmi2 = False
-    mycursorHdmi2.execute("select bHdmi2 from pasadvanced.hdmi")
+    mycursorHdmi2.execute("")
     resultHdmi2 = mycursorHdmi2.fetchone()[0]
     return resultHdmi2
 
 # function that execute productid on hdmi
 def hdmiProductId():
     hdmiProductId = False
-    mycursorHdmi.execute("select u32recProductId from pasadvanced.hdmi")
+    mycursorHdmi.execute("")
     hdmiProductId = mycursorHdmi.fetchone()[0]
     return hdmiProductId
 
 # function that execute satellite query
 def satellite():
     resultSatellite = False
-    mycursorSatellite.execute("select bSatellite from pasadvanced.satellite")
+    mycursorSatellite.execute("")
     resultSatellite = mycursorSatellite.fetchone()[0]
     return resultSatellite
 
 # function that execute productid on satellite
 def satelliteProductId():
     satelliteProductId = False
-    mycursorSatellite.execute("select u32recProductId from pasadvanced.satellite")
+    mycursorSatellite.execute("")
     satelliteProductId = mycursorSatellite.fetchone()[0]
     return satelliteProductId
 
@@ -133,7 +133,7 @@ def hdmi1():
 
         # control hdmi1
         if (red_color() == "red" or white_color() == "white") and resultHdmi1() == 1:
-            hdmi1query = """update hdmitestresult set sHdmi1Result='basarili' where u32recProductId = %s"""
+            hdmi1query = """"""
             tuple1 = (resultHdmi1ProductId)
             mycursorHdmi1.execute(hdmi1query, (tuple1,))
             mydb.commit()
@@ -141,7 +141,7 @@ def hdmi1():
             logger.info('hdmi1 basarili')
             print("hdmi1 basarili")
         else:
-            hdmi1query = """update hdmitestresult set sHdmi1Result='basarisiz' where u32recProductId = %s"""
+            hdmi1query = """"""
             tuple1 = (resultHdmi1ProductId)
             mycursorHdmi1.execute(hdmi1query, (tuple1,))
             mydb.commit()
@@ -202,7 +202,7 @@ def hdmi2():
 
         # control hdmi2
         if (red_color() == "red" or white_color() == "white") and resultHdmi2() == 1:
-            hdmi2query = """update hdmitestresult set sHdmi2Result='basarili' where u32recProductId = %s"""
+            hdmi2query = """"""
             tuple2 = (resultHdmi2ProductId)
             mycursorHdmi2.execute(hdmi2query, (tuple2,))
             mydb.commit()
@@ -210,7 +210,7 @@ def hdmi2():
             logger.info('hdmi2 basarili')
             print("hdmi2 basarili")
         else:
-            hdmi2query = """update hdmitestresult set sHdmi2Result='basarisiz' where u32recProductId = %s"""
+            hdmi2query = """"""
             tuple2 = (resultHdmi2ProductId)
             mycursorHdmi2.execute(hdmi2query, (tuple2,))
             mydb.commit()
@@ -242,7 +242,7 @@ def logo():
 
     # save logo result
     if logoResult() == "logo" and satellite() == 1:
-        satellitequery = """update satelliteresult set satelliteresult='basarili' where u32recProductId = %s"""
+        satellitequery = """"""
         tuple3 = (resultSatelliteProductId)
         mycursorHdmi2.execute(satellitequery, (tuple3,))
         mydb.commit()
@@ -250,7 +250,7 @@ def logo():
         logger.info('yayin basarili')
         print("yayin basarili")
     else:
-        satellitequery = """update satelliteresult set satelliteresult='basarisiz' where u32recProductId = %s"""
+        satellitequery = """"""
         tuple3 = (resultSatelliteProductId)
         mycursorHdmi2.execute(satellitequery, (tuple3,))
         mydb.commit()
