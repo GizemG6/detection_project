@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 
 # create file handler and set formatter
-log_path = log_path = r'C:'
+log_path = log_path = r'C:' # log path
 file_handler = logging.FileHandler(log_path)
 formatter = logging.Formatter('%(asctime)s : %(levelname)s : %(message)s')
 file_handler.setFormatter(formatter)
@@ -22,11 +22,11 @@ logger.addHandler(file_handler)
 
 # connect db
 mydb = mysql.connector.connect(
-        host="",
-        user="",
-        password="",
-        port="",
-        database=""
+        host="", # hostname
+        user="", # user
+        password="", # password
+        port="", # mysql port
+        database="" # database name
     )
 
 mycursorHdmi = mydb.cursor()
@@ -37,35 +37,35 @@ mycursorSatellite = mydb.cursor()
 # function that execute hdmi1 query
 def resultHdmi1():
     resultHdmi1 = False
-    mycursorHdmi1.execute("")
+    mycursorHdmi1.execute("") # hdmi1 query
     resultHdmi1 = mycursorHdmi1.fetchone()[0]
     return resultHdmi1
 
 # function that execute hdmi2 query
 def resultHdmi2():
     resultHdmi2 = False
-    mycursorHdmi2.execute("")
+    mycursorHdmi2.execute("") # hdmi2 query
     resultHdmi2 = mycursorHdmi2.fetchone()[0]
     return resultHdmi2
 
 # function that execute productid on hdmi
 def hdmiProductId():
     hdmiProductId = False
-    mycursorHdmi.execute("")
+    mycursorHdmi.execute("") # query that returns the productid on the hdmi table
     hdmiProductId = mycursorHdmi.fetchone()[0]
     return hdmiProductId
 
 # function that execute satellite query
 def satellite():
     resultSatellite = False
-    mycursorSatellite.execute("")
+    mycursorSatellite.execute("") # satellite query
     resultSatellite = mycursorSatellite.fetchone()[0]
     return resultSatellite
 
 # function that execute productid on satellite
 def satelliteProductId():
     satelliteProductId = False
-    mycursorSatellite.execute("")
+    mycursorSatellite.execute("") # query that returns the productid on the satellite table
     satelliteProductId = mycursorSatellite.fetchone()[0]
     return satelliteProductId
 
